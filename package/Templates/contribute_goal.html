@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Contribute to Goal{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card bg-dark text-light">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Contribute to Goal: {{ goal.title }}</h5>
+
+                    <!-- Goal Information Section -->
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Current Amount:</h6>
+                            <p class="mb-0 text-success fs-4">${{ goal.current_amount }}</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Goal Amount:</h6>
+                            <p class="mb-0 text-warning fs-4">${{ goal.goal_amount }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Contribution Form -->
+                    <form method="POST">
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="mb-3">
+                            {{ form.amount.label(class="form-label text-light") }}
+                            {{ form.amount(class="form-control bg-dark text-light border-secondary") }}
+                            {% if form.amount.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.amount.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Add Contribution</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

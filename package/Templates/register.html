@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card no-hover">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Create Account</h2>
+                    <form method="POST" action="{{ url_for('register_page') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.username.label(class="form-label text-light") }}
+                            {{ form.username(class="form-control bg-dark text-light border-secondary", placeholder="User Name") }}
+                            {% for error in form.username.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.email.label(class="form-label text-light") }}
+                            {{ form.email(class="form-control bg-dark text-light border-secondary", placeholder='Email') }}
+                            {% for error in form.email.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password.label(class="form-label text-light") }}
+                            {{ form.password(class="form-control bg-dark text-light border-secondary", placeholder='Password') }}
+                            {% for error in form.password.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.confirm_password.label(class="form-label text-light") }}
+                            {{ form.confirm_password(class="form-control bg-dark text-light border-secondary", placeholder='Confirm Password') }}
+                            {% for error in form.confirm_password.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="d-grid mb-3">
+                            {{ form.submit(class="btn btn-primary btn-medium") }}
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <small class="text-light">
+                              <a href="{{ url_for('login_page') }}" class="text-light">Already have an account ?</a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

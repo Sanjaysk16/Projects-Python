@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Dashboard - Finance Manager
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
+            <p>Manage your finances effectively with your personal finance manager.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="card border-success text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Total Income</h5>
+                    <p class="card-text display-4">₹{{ total_income }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-danger text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Total Expenses</h5>
+                    <p class="card-text display-4">₹{{ total_expenses }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card border-primary text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Remaining Income</h5>
+                    <p class="card-text display-4">₹{{ remaining_income }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Add Income</h5>
+                    <p class="card-text">Record your sources of income.</p>
+                    <a href="{{ url_for('add_income') }}" class="btn btn-primary btn-lg">Add Income</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Expenses</h5>
+                    <p class="card-text">Track and manage your expenses.</p>
+                    <a href="{{ url_for('add_expense') }}" class="btn btn-primary btn-lg">Manage Expenses</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Saving Goals</h5>
+                    <p class="card-text">Set and track your saving goals.</p>
+                    <a href="{{ url_for('saving_goal') }}" class="btn btn-primary btn-lg">Add Saving Goal</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">View Reports</h5>
+                    <p class="card-text">Analyze your financial data.</p>
+                    <a href="{{url_for('reports')}}" class="btn btn-primary btn-lg">View Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

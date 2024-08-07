@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Expense - Finance Manager
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Add Expense</h2>
+                    <form method="POST" action="{{ url_for('add_expense') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mb-3">
+                            {{ form.category.label(class="form-label text-light") }}
+                            {{ form.category(class="form-control bg-dark text-light border-secondary", placeholder="Enter expense category") }}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.amount.label(class="form-label text-light") }}
+                            {{ form.amount(class="form-control bg-dark text-light border-secondary", placeholder="Enter amount") }}
+                        </div>
+                        <br>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Expense</button>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

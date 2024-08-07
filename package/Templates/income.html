@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Income - Finance Manager
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">Add Income</h2>
+                    <form method="POST" action="{{ url_for('add_income') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group mb-3">
+                            {{ form.source.label(class="form-label text-label") }}
+                            {{ form.source(class="form-control bg-dark text-light border-secondary", placeholder="Enter income source") }}
+                            {% for error in form.source.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="form-group mb-3">
+                            {{ form.amount.label(class="form-label text-label") }}
+                            {{ form.amount(class="form-control bg-dark text-light border-secondary", placeholder="Enter amount") }}
+                            {% for error in form.amount.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Add Income</button>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

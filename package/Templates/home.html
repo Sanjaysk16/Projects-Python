@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Finance Manager{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome to MyFinanceManager</h1>
+        <p class="lead text-center mb-4">Your ultimate tool for mastering personal finance and achieving financial freedom.</p>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">User Authentication</h5>
+                        <p class="card-text">Securely access your financial data with personalized accounts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Dashboard</h5>
+                        <p class="card-text">Get a quick overview of your financial status, including income, expenses, and savings goals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Income & Expense Management</h5>
+                        <p class="card-text">Easily log and categorize your income and expenses. See where your money is going and make decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Savings Goals</h5>
+                        <p class="card-text">Set and track your savings goals. Watch your progress and stay motivated.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Reports & Visualizations</h5>
+                        <p class="card-text">Generate detailed reports and visualizations to understand your financial habits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Budget Alerts</h5>
+                        <p class="card-text">Receive notifications to help you stay within your budget and avoid overspending.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In and Register Buttons -->
+        <div class="text-center mt-5">
+            <a href="{{ url_for('login_page') }}" class="btn btn-primary btn-lg me-3">Login</a>
+            <a href="{{ url_for('register_page') }}" class="btn btn-primary btn-lg me-3">Sign Up</a>
+        </div>
+    </div>
+{% endblock %}

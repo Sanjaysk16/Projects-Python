@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Added no-hover class here -->
+            <div class="card no-hover">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login</h2>
+                    <form method="POST" action="{{ url_for('login_page') }}">
+                        {{ form.hidden_tag() }}
+                        <div class="mb-3">
+                            {{ form.email.label(class="form-label text-light") }}
+                            {{ form.email(class="form-control bg-dark text-light border-secondary", placeholder='Email') }}
+                            {% for error in form.email.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password.label(class="form-label text-light") }}
+                            {{ form.password(class="form-control bg-dark text-light border-secondary", placeholder='Password') }}
+                            {% for error in form.password.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-check mb-3">
+                            {{ form.remember(class="form-check-input") }}
+                            {{ form.remember.label(class="form-check-label text-light") }}
+                        </div>
+                        
+                        <div class="d-grid mb-3">
+                            {{ form.submit(class="btn btn-primary btn-medium") }}
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-3">
+                            <a href="#" class="text-light btn btn-link">Forgot password ?</a>
+                            <small class="text-light">
+                                <a href="{{ url_for('register_page') }}" class="text-light btn btn-link">Need an account ?</a>
+                            </small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
